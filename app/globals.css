@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-text-main overflow-x-hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer components {
+  .container-max {
+    @apply max-w-6xl mx-auto px-4 md:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-block bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer border-none;
+  }
+
+  .btn-secondary {
+    @apply inline-block bg-transparent text-primary-blue border-2 border-primary-blue px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-light ml-4;
+  }
+
+  @media (max-width: 768px) {
+    .btn-secondary {
+      @apply ml-0 mt-4 block w-full;
+    }
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center text-text-main mb-12;
+  }
+
+  .section-title-accent {
+    @apply text-primary-blue;
+  }
+
+  .card-service {
+    @apply bg-primary-light p-6 rounded-xl border-l-4 border-primary-blue transition-all duration-300 hover:shadow-lg hover:transform hover:-translate-y-1.5;
+  }
+
+  .card-service.dark {
+    @apply bg-primary-blue border-primary-dark text-white;
+  }
+
+  .card-service.dark h4,
+  .card-service.dark p {
+    @apply text-white;
+  }
+}
