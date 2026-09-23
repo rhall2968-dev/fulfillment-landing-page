@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FulfillmentMax - Build Brands Through Fulfillment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+
+        /* Navigation */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .hero h1 .accent {
+            color: #0066cc;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #0066cc;
+            border: 2px solid #0066cc;
+            margin-left: 1rem;
+        }
+
+        .cta-button.secondary:hover {
+            background: #f5f9ff;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        section h2 .accent {
+            color: #0066cc;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #0066cc 0%, #003d7a 100%);
+            border-radius: 3rem;
+            margin: 3rem 2rem;
+        }
+
+        #contact h2 {
+            color: #ffffff;
+        }
+
+        #contact h2 .accent {
+            color: #ffffff;
+        }
+
+        #contact .contact-form {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            box-shadow: 0 10px 40px rgba(0, 102, 204, 0.2);
+        }
+
+        .contact-content {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 0;
+            width: 750px;
+            height: 450px;
+        }
+
+        .contact-form .form-group:nth-child(4) {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 180px;
+            flex-grow: 1;
+        }
+
+        /* What We Do Section */
+        #what-we-do {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #f5f9ff;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            border-left: 4px solid #0066cc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+        }
+
+        .service-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Client Facts Section */
+        #client-facts {
+            background: #f5f9ff;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fact-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            text-align: center;
+            border-top: 3px solid #0066cc;
+        }
+
+        .fact-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background: #ffffff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: #f5f9ff;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            border-left: 4px solid #0066cc;
+        }
+
+        .testimonial-text {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .testimonial-role {
+            color: #0066cc;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* FAQ Section */
+        #faq {
+            background: #f5f9ff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            margin-bottom: 1rem;
+            border-radius: 0.8rem;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f5f9ff;
+        }
+
+        .faq-question.active {
+            background: #f5f9ff;
+            color: #0066cc;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: #0066cc;
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #ffffff;
+        }
+
+        .faq-answer.show {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+                width: 100%;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            #contact > .container > .contact-content > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">FulfillmentMax</div>
+            <ul>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#client-facts">Facts</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Fulfillment<span class="accent">Max</span></h1>
+            <p class="tagline">We build brands through fulfillment</p>
+            <button class="cta-button">Get Started</button>
+            <button class="cta-button secondary">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Get in <span class="accent">Touch</span></h2>
+                <div style="display: grid; grid-template-columns: 450px 1fr; gap: 4rem; align-items: start;">
+                    <div id="calendly-embed" style="background: #ffffff; border-radius: 0.8rem; padding: 2rem; text-align: center; color: #555; width: 450px; height: 450px; display: flex; align-items: center; justify-content: center;">
+                        <!-- Calendly embed code goes here -->
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 1rem;">📅</p>
+                            <p>Calendar coming soon</p>
+                            <p style="font-size: 0.9rem; margin-top: 1rem; color: #999;">Replace with Calendly embed</p>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our <span class="accent">Clients</span> Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"[Testimonial text goes here]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company/Role]</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"[Testimonial text goes here]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company/Role]</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"[Testimonial text goes here]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company/Role]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do">
+        <div class="container">
+            <h2>What We <span class="accent">Do</span></h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;">
+                <!-- We Do This Column -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #0066cc; margin-bottom: 2rem; text-align: center;">We Do This</h3>
+                    <div class="services-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="service-card" style="background: #0066cc; border-left: 4px solid #0052a3; color: #ffffff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📦</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Fulfill Orders</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">Fast, accurate packing every single time. We handle fulfillment like it's our own brand.</p>
+                        </div>
+                        <div class="service-card" style="background: #0066cc; border-left: 4px solid #0052a3; color: #ffffff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏢</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Store Your Product</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">Secure, organized storage with real-time inventory tracking so you always know what you have.</p>
+                        </div>
+                        <div class="service-card" style="background: #0066cc; border-left: 4px solid #0052a3; color: #ffffff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">👁️</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Complete Transparency</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">Full visibility into everything — what's in stock, what shipped, what went wrong. No surprises.</p>
+                        </div>
+                        <div class="service-card" style="background: #0066cc; border-left: 4px solid #0052a3; color: #ffffff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Fast Response Times</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">Questions? Problems? We actually answer. Real people, real support, always available.</p>
+                        </div>
+                        <div class="service-card" style="background: #0066cc; border-left: 4px solid #0052a3; color: #ffffff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏭</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Cleanest Warehouse System</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">Organized. Precise. Efficient. Our packing and storage system is built to get it right every time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- We Help You Do That Column -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #0066cc; margin-bottom: 2rem; text-align: center;">We Help You Do That</h3>
+                    <div class="services-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="service-card" style="background: #e6f2ff; border-left: 4px solid #5ca3ff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔍</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Brand Auditing</h4>
+                            <p style="font-size: 0.95rem;">We analyze what's working and what's not. Then we tell you exactly how to fix it.</p>
+                        </div>
+                        <div class="service-card" style="background: #e6f2ff; border-left: 4px solid #5ca3ff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎨</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Package Design</h4>
+                            <p style="font-size: 0.95rem;">Premium packaging that makes your product feel like a gift. Better perceived value = higher prices + repeat customers.</p>
+                        </div>
+                        <div class="service-card" style="background: #e6f2ff; border-left: 4px solid #5ca3ff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💼</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Personal Consulting</h4>
+                            <p style="font-size: 0.95rem;">Guidance on scaling, strategies to grow your subscription base, and connections to the best suppliers in the industry.</p>
+                        </div>
+                        <div class="service-card" style="background: #e6f2ff; border-left: 4px solid #5ca3ff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🤝</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Mentorship</h4>
+                            <p style="font-size: 0.95rem;">We're a partner invested in your success. We show you the path and walk it with you.</p>
+                        </div>
+                        <div class="service-card" style="background: #e6f2ff; border-left: 4px solid #5ca3ff;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📈</div>
+                            <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Subscription Strategy</h4>
+                            <p style="font-size: 0.95rem;">We help you build a loyal, recurring revenue base. More customers coming back means exponential growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Facts Section -->
+    <section id="client-facts">
+        <div class="container">
+            <h2>Client <span class="accent">Facts</span></h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="number">—</div>
+                    <p>Fill in your stat here</p>
+                </div>
+                <div class="fact-card">
+                    <div class="number">—</div>
+                    <p>Fill in your stat here</p>
+                </div>
+                <div class="fact-card">
+                    <div class="number">—</div>
+                    <p>Fill in your stat here</p>
+                </div>
+                <div class="fact-card">
+                    <div class="number">—</div>
+                    <p>Fill in your stat here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2>Frequently Asked <span class="accent">Questions</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why do I need a 3PL if I'm only doing a few orders a week?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Most 3PLs won't even look at you unless you're doing 1000+ orders a week. We're different — we work with every brand that wants to grow, regardless of size. Here's what matters: when you fulfill yourself, you're paying premium prices for individual shipping labels. We do bulk, so your labels cost a fraction of what you're paying. But that's just the money part. The real cost is your time. You're spending hours packing, printing labels, tracking inventory — hours you should be spending on marketing, product development, and actually growing your brand. We handle all of it so you can focus on what actually matters. Curious? Let's talk about your brand.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why shouldn't I just dropship?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Dropshipping seems easier because it takes less work, but it's killing your brand. When a customer orders from you and waits 2-3 weeks, they get upset. They have questions. The chances they come back? Slim. And if they need customer service? It's a nightmare. Here's the real thing: your customers — the actual people buying your product — they'd choose to buy from a brand that ships fast, responds quickly, and actually cares. That's the difference. We get orders there in 2-4 days. We have real customer service. We're always available when something goes wrong. That's the brand experience your customers actually want. Ready to build that? Book a call.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can't I just fulfill orders myself to save money?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Fulfilling your orders yourself only makes sense if you have the time and you don't want to grow your brand too much, or you want to refine the process before handing it off to us. But once you outsource it, the process gets cheaper, faster, more efficient, and most importantly — off your hands. You get your life back.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>I've had a bad experience with other 3PLs. What makes you different?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            You get a dedicated team that knows your brand inside and out. They're responsible for everything — how your orders are packed, what goes into them, how they're tracked. Real accountability, real people, real support. Interested? Schedule a call.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I know you'll actually help me grow, not just fulfill orders?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Because your growth is literally our growth. If your brand succeeds, we send out more orders, make better margins, and build a long-term partnership. We're not just a vendor you hire and forget about — we're a partner who's invested in your success. We'll connect you with the best suppliers, help with payment processing issues, guide your packaging strategy, and be there as you scale. Think of us as a friend in the industry who has both the interest and the capability to help you win. Let's see if we're the right fit. Book a call.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's the onboarding process like?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Simple. You sign. You get your product and materials to our warehouse. We connect to your store and boom — we're live. No long setup processes, no hoops to jump through. That's it.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FulfillmentMax. All rights reserved.</p>
+        <p><a href="#contact">Contact</a> | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const question = element;
+            const answer = element.nextElementSibling;
+
+            question.classList.toggle('active');
+            answer.classList.toggle('show');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
