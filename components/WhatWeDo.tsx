@@ -65,7 +65,7 @@ export default function WhatWeDo() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* We Do This */}
           <div>
-            <h3 className="text-2xl font-bold text-primary-blue text-center mb-6">We Do This</h3>
+            <h3 className="text-2xl font-bold text-primary-blue text-center mb-6">We...</h3>
             <div className="space-y-4">
               {weDoThis.map((item, idx) => (
                 <div key={idx} className="card-service dark">
@@ -79,7 +79,7 @@ export default function WhatWeDo() {
 
           {/* We Help You Do That */}
           <div>
-            <h3 className="text-2xl font-bold text-primary-blue text-center mb-6">We Help You Do That</h3>
+            <h3 className="text-2xl font-bold text-primary-blue text-center mb-6">We Help You With...</h3>
             <div className="space-y-4">
               {weHelpYouDoThat.map((item, idx) => (
                 <div key={idx} className="card-service">
