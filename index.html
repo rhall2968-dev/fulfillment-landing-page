@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            max-width: 100%;
         }
 
         body {
@@ -422,14 +423,10 @@
             }
 
             section {
-                padding: 2.5rem 0 !important;
+                padding: 2.5rem 1rem !important;
                 margin: 0 !important;
-                width: 100vw;
-                position: relative;
-                left: 50%;
-                right: 50%;
-                margin-left: -50vw;
-                margin-right: -50vw;
+                width: 100% !important;
+                max-width: 100% !important;
             }
             .hero h1 {
                 font-size: 2rem;
@@ -477,6 +474,7 @@
                 height: auto !important;
                 order: 2;
                 padding: 1rem !important;
+                box-sizing: border-box !important;
             }
 
             #calendly-embed {
