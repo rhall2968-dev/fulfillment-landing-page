@@ -412,12 +412,35 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
+            section {
+                padding: 2.5rem 0 !important;
+                margin: 0 !important;
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
+            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero .tagline {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem !important;
             }
 
             nav ul {
@@ -436,20 +459,31 @@
                 font-size: 2rem;
             }
 
+            .contact-content {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
             #contact > .container > .contact-content > div {
                 grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+                gap: 1.5rem !important;
+                max-width: 100% !important;
             }
 
             /* Mobile contact form */
             #contact .contact-form {
                 width: 100% !important;
+                max-width: 100% !important;
                 height: auto !important;
                 order: 2;
+                padding: 1rem !important;
             }
 
             #calendly-embed {
+                width: 100% !important;
+                max-width: 100% !important;
                 order: 3;
+                min-height: 300px !important;
             }
 
             .contact-form .form-group:nth-child(4) {
@@ -459,11 +493,12 @@
             /* Mobile What We Do section */
             #what-we-do > .container > div {
                 grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+                gap: 1.5rem !important;
+                max-width: 100% !important;
             }
 
             #what-we-do h3 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             .services-grid {
@@ -471,20 +506,25 @@
             }
 
             .service-card {
-                padding: 1.5rem !important;
+                padding: 1rem !important;
             }
 
             .service-card h3,
             .service-card h4 {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .service-card p {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
-            section {
-                padding: 3rem 1rem !important;
+            nav {
+                padding: 1rem 0 !important;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem !important;
             }
         }
     </style>
